@@ -15,6 +15,7 @@ function _pure_prompt_first_line \
                         )
     set --local prompt_width (_pure_string_width $prompt)
     set --local current_folder (_pure_prompt_current_folder $prompt_width)
+    set --local prompt_kubectl_context (_pure_prompt_kubectl_context)
 
     set --local prompt_components
     if test $pure_begin_prompt_with_current_directory = true
@@ -22,12 +23,14 @@ function _pure_prompt_first_line \
                 $current_folder \
                 $prompt_git \
                 $prompt_ssh \
+                $prompt_kubectl_context \
                 $prompt_command_duration
     else
         set prompt_components \
                 $prompt_ssh \
                 $current_folder \
                 $prompt_git \
+                $prompt_kubectl_context \
                 $prompt_command_duration
     end
 

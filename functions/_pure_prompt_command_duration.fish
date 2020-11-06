@@ -9,6 +9,7 @@ function _pure_prompt_command_duration
     set --local now
     if test $command_duration
         set now (date "+%Y-%m-%d %H:%M:%S")
+        set now "| now: $now"
     end
 
     echo "$command_duration_color$command_duration $now"
